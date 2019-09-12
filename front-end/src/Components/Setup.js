@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 
 class Setup extends React.Component{
   constructor(props){
@@ -9,9 +9,20 @@ class Setup extends React.Component{
       budget: 0
     };
   }
-  submitSetup = (e)=>{
+   submitSetup = async (e)=>{
     e.preventDefault();
     console.log("submitSetup", this.state.budget, this.state.name)
+    const setUpURL = `http://localhost:3000/setup`
+    //full axios request. 
+    const setupResponse = await axios({
+      method: "POST",
+      data:{
+        name: this.state.name,
+        budget: this.state.budget
+      },
+      url: setUpURL
+    });
+    console.log(setupResponse)
   }
 
   changeName=(e)=>{
