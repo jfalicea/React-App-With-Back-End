@@ -11,7 +11,11 @@ class Home extends React.Component{
 
   render(){
     return(<>
-        <h1>Home Page</h1>      
+        <div className="col col-sm-12">
+            <div className="total-budget">Total Budget: $2000</div>
+            <div className="total-spent">Total Spent: $1000</div>
+            <div className="total-spent">Total Spent: $1000</div>
+        </div>      
     </>)
   }
 }
