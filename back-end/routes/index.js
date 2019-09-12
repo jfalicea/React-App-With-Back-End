@@ -7,7 +7,18 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/setup',(req,res,next)=>{
+router.post('/setup', async (req,res,next)=>{
+  const { name, budget } = req.body
+  const insertQuery = `
+    INSERT INTO accounts (name, budget)
+      VALUES
+    ($1,$2)
+  `
+  try{
+  const inserted = await db.one(insertQuery,[name,budget]);
+  } catch(error){
+    console.log(error)
+  }
   res.json(req.body)
 })
 

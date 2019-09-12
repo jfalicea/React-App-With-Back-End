@@ -16,7 +16,7 @@ class Setup extends React.Component{
     //full axios request. 
     const setupResponse = await axios({
       method: "POST",
-      data:{
+      data:{  //this is axios specific.... this equal to the res.body 
         name: this.state.name,
         budget: this.state.budget
       },
