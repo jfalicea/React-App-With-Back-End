@@ -12,7 +12,7 @@ class Setup extends React.Component{
    submitSetup = async (e)=>{
     e.preventDefault();
     console.log("submitSetup", this.state.budget, this.state.name)
-    const setUpURL = `http://localhost:3000/setup`
+    const setUpURL = `${window.apiUrl}/setup`
     //full axios request. 
     const setupResponse = await axios({
       method: "POST",
@@ -22,17 +22,19 @@ class Setup extends React.Component{
       },
       url: setUpURL
     });
-    console.log(setupResponse)
+    setupResponse.data.msg === "added" ?
+      this.props.history.push('/') //very similar to doing redirect 
+     : this.props.history.push('/error')
   }
 
   changeName=(e)=>{
-    // console.log("",e.target.value)
+    // console.log("Setup.js - changeName",e.target.value)
     this.setState({
       name : e.target.value
     })
   }
   changeBudget=(e)=>{
-    // console.log(e.target.value)
+    // console.log("Setup.js - changeBudget", e.target.value)
     this.setState({
       budget : e.target.value
     })
