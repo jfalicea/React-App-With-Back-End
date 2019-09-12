@@ -6,7 +6,7 @@ function Navbar(props){
         <li className="nav-item"><Link to="/" className="nav-link active">Active</Link></li>
         <li className="nav-item"><Link to="/add-income" className="nav-link">Add Income</Link></li>
         <li className="nav-item"><Link to="/add-expense" className="nav-link">Add an Expense</Link></li>
-        <li className="nav-item"><Link to="/setup" className="nav-link" tabindex="-1" aria-disabled="true">Setup Your Account</Link></li>
+        <li className="nav-item"><Link to="/setup" className="nav-link" tabIndex="-1" aria-disabled="true">Setup Your Account</Link></li>
     </ul>
   </>)
 }
